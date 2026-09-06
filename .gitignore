@@ -1,0 +1,16 @@
+__pycache__/
+*.py[cod]
+.venv/
+.DS_Store
+
+# Pipeline outputs — pass --out-dir to put runs wherever you like.
+runs/
+outputs/
+
+# Scratch files an agent may write to the working directory.
+gap_report_draft.json
+skills_backup/
+
+# Datasets are built by data/prepare/, never committed.
+data/*/
+!data/prepare/
