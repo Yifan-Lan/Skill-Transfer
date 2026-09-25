@@ -1,16 +1,26 @@
 # Skill Transfer
 
-Code for *Skill Transfer: Adapting Agent Skills from Strong to Weak Agents*.
+![License](https://img.shields.io/badge/license-MIT-blue)
+![Python](https://img.shields.io/badge/python-3.11-blue)
+
+Code for *Skill Transfer: Adapting Agent Skills from Strong to Weak Agents*
+([paper](paper/SKill_Transfer_preprint.pdf)).
 
 A skill that works well for a frontier model often fails on a smaller one: the
 strong agent silently supplies procedural steps the skill leaves implicit, and
 the weak agent skips them. Skill Transfer rewrites the skill so the weak agent
 can execute it, **without touching any model weights**.
 
+![Skill Transfer pipeline](assets/pipeline_overview.png)
+
 Each iteration runs the weak agent on a small set of training tasks, abstracts
 both agents' trajectories into typed execution structures, diffs them to find
 the steps the weak agent is missing, and patches the skill. Two LLM agents do
 the work: a **Diagnoser** (writes a gap report) and a **Patcher** (applies it).
+
+Across three benchmarks, Skill Transfer raises the weak agent's pass rate
+4.7–23.0 points over the unmodified skill, and up to 12.0 points over a
+skill-evolution baseline (EvoSkill) — see the paper for the full results.
 
 ---
 
@@ -245,4 +255,11 @@ export OFFICEQA_DIR=/path/to/officeqa
 ## Citation
 
 ```bibtex
+@article{skilltransfer2026,
+  title   = {Skill Transfer: Adapting Agent Skills from Strong to Weak Agents},
+  author  = {Lan, Yifan and Wang, Hanyu and Lin, Lu and Chen, Jinghui},
+  year    = {2026},
+  note    = {Preprint},
+  url     = {https://github.com/Yifan-Lan/Skill-Transfer}
+}
 ```
